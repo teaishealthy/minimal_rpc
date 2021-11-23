@@ -1,5 +1,4 @@
-from minimal_rpc import block, handshake, send, windows_connect
-from minimal_rpc.rpc import receive
+from minimal_rpc import block, handshake, send, windows_connect, receive
 
 
 f = windows_connect()
