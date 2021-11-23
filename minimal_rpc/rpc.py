@@ -6,14 +6,13 @@ import uuid
 
 
 def windows_connect():
-    f = None
     for a in range(10):
         try:
             f = open(rf"\\?\pipe\discord-ipc-{a}", "wb+")
-            break
+            return f
         except FileNotFoundError:
             pass
-    return f
+    return None
 
 
 def handshake(f, client_id):
