@@ -8,8 +8,7 @@ import uuid
 def windows_connect():
     for a in range(10):
         try:
-            f = open(rf"\\?\pipe\discord-ipc-{a}", "wb+")
-            return f
+            return open(rf"\\?\pipe\discord-ipc-{a}", "wb+")
         except FileNotFoundError:
             pass
     return None
@@ -41,8 +40,7 @@ send.rp = _send_rp
 
 
 def receive(f, len_):
-    data = f.read(len_)
-    return data
+    return f.read(len_)
 
 
 receive.header = lambda f: struct.unpack("<II", receive(f, 8))[1]
